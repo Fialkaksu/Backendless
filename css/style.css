@@ -8,6 +8,9 @@
 
   --content-text-color: hsl(var(--main-hue), 0%, 20%);
 
+  --btn-bg-color: hsl(var(--main-hue), 100%, 90%);
+  --btn-hover-bg-color: hsl(var(--main-hue), 100%, 70%);
+
   filter: brightness(var(--theme-darkness));
 }
 
@@ -19,6 +22,9 @@
 
   --content-text-color: hsl(var(--main-hue), 0%, 20%);
 
+  --btn-bg-color: hsl(var(--main-hue), 100%, 90%);
+  --btn-hover-bg-color: hsl(var(--main-hue), 100%, 70%);
+
   filter: brightness(var(--theme-darkness));
 }
 
@@ -29,6 +35,9 @@
   --header-bg-color: hsl(var(--main-hue), 100%, 5%);
 
   --content-text-color: hsl(var(--main-hue), 100%, 90%);
+
+  --btn-bg-color: hsl(var(--main-hue), 100%, 90%);
+  --btn-hover-bg-color: hsl(var(--main-hue), 100%, 70%);
 
   filter: brightness(var(--theme-darkness));
 }
@@ -61,17 +70,65 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  -webkit-box-shadow: 0px 10px 5px -5px rgba(34, 60, 80, 0.6);
-  -moz-box-shadow: 0px 10px 5px -5px rgba(34, 60, 80, 0.6);
   box-shadow: 0px 10px 5px -5px rgba(34, 60, 80, 0.6);
   background: var(--header-bg-color);
   color: var(--content-text-color);
 }
 
-.theme__input {
-  margin-left: 15px;
+.theme-tab,
+.theme-mob {
+  display: none;
 }
 
-@media (max-width: 1079.98px) {}
+.theme__toggle {
+  margin-left: 15px;
+  cursor: pointer;
+}
 
-@media (max-width: 639.98px) {}
+@media (max-width: 1079.98px) {
+  .theme-desk {
+    display: none;
+  }
+
+  .theme-tab {
+    display: block;
+  }
+
+  .theme-tab .theme__toggle {
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    box-shadow: 0px 8px 5px -5px rgba(34, 60, 80, 0.6);
+    background: var(--btn-bg-color);
+    transition: .5s linear;
+  }
+  .theme-tab .theme__toggle:hover{
+    background: var(--btn-hover-bg-color);
+  }
+  .theme-tab .theme__toggle:active{
+    transform: translateY(8px);
+  }
+}
+
+@media (max-width: 639.98px) {
+  .theme-tab {
+    display: none;
+  }
+
+  .theme-mob {
+    display: block;
+  }
+  #selectTheme{
+    padding: 5px;
+    border-radius: 5px;
+    background: var(--btn-bg-color);
+  }
+  #selectTheme option{
+    background: var(--btn-bg-color);
+  }
+  #selectTheme option:checked{
+    background: var(--btn-hover-bg-color);
+    font-weight: bold;
+  }
+}
