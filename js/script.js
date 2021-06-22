@@ -43,8 +43,10 @@ function checkInvert() {
   Array.from(galleryItems).forEach(el => {
     if (theme === 'backendless') {
       el.classList.add('invert');
+      modal.classList.add('invert');
     } else {
       el.classList.remove('invert');
+      modal.classList.remove('invert');
     }
   });
 }
@@ -62,6 +64,7 @@ function showModal() {
   modal.style.display = 'block';
   modalImg.src = 'assets/fox.jpg';
   captionText.innerHTML = 'fox';
+  checkInvert();
 }
 
 modalClose.onclick = function () {
