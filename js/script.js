@@ -72,8 +72,16 @@ Array.from(galleryItems).forEach(el => {
   });
 });
 
-modalClose.onclick = function () {
-  modal.style.display = 'none';
+window.addEventListener('click', hideModal);
+window.addEventListener('keydown', hideModal);
+
+function hideModal() {
+  if ((event.target.classList.contains('modal') &&
+      !event.target.classList.contains('modal__content')) ||
+    event.key === "Escape" ||
+    event.target.classList.contains('modal__close')) {
+    modal.style.display = 'none';
+  }
 }
 
 function getTimeOfDay() {
