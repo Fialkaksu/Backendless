@@ -2,18 +2,19 @@ const radioToggles = document.querySelectorAll('.theme__toggle[type="radio"]');
 const buttonToggles = document.querySelectorAll('button.theme__toggle');
 const selectToggles = selectTheme;
 const elementsToInvert = document.querySelectorAll('.gallery__item');
-// console.log(elementsToInvert);
+
 let theme;
 
 Array.from(radioToggles).forEach(el => {
   el.addEventListener('click', switchTheme);
 });
+
 Array.from(buttonToggles).forEach(el => {
   el.addEventListener('click', switchTheme);
 });
+
 selectToggles.addEventListener('change', () => {
   let index = selectToggles.selectedIndex;
-  // let theme;
   switch (index) {
     case 0:
       theme = 'light';
@@ -27,10 +28,16 @@ selectToggles.addEventListener('change', () => {
     default:
       theme = 'light';
   }
-  // console.log("Switching theme to " + theme);
   document.documentElement.setAttribute('theme', theme);
   checkInvert();
 });
+
+
+function switchTheme(e) {
+  theme = e.target.dataset.theme;
+  document.documentElement.setAttribute('theme', theme);
+  checkInvert();
+}
 
 function checkInvert() {
   Array.from(elementsToInvert).forEach(el => {
@@ -40,11 +47,4 @@ function checkInvert() {
       el.classList.remove('invert');
     }
   });
-}
-
-function switchTheme(e) {
-  theme = e.target.dataset.theme;
-  // console.log("Switching theme to " + theme);
-  document.documentElement.setAttribute('theme', theme);
-  checkInvert();
 }
