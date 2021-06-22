@@ -1,8 +1,8 @@
 const radioToggles = document.querySelectorAll('.theme__toggle[type="radio"]');
 const buttonToggles = document.querySelectorAll('button.theme__toggle');
 const selectToggles = selectTheme;
-const elementsToInvert = document.querySelectorAll('.gallery__item');
-
+const galleryItems = document.querySelectorAll('.gallery__item');
+console.log(galleryItems)
 let theme;
 
 Array.from(radioToggles).forEach(el => {
@@ -40,11 +40,30 @@ function switchTheme(e) {
 }
 
 function checkInvert() {
-  Array.from(elementsToInvert).forEach(el => {
+  Array.from(galleryItems).forEach(el => {
     if (theme === 'backendless') {
       el.classList.add('invert');
     } else {
       el.classList.remove('invert');
     }
   });
+}
+
+const modal = document.querySelector('.modal');
+const modalImg = document.querySelector('.modal__content');
+const captionText = document.querySelector('.modal__caption');
+const modalClose = document.querySelector('.modal__close');
+
+Array.from(galleryItems).forEach(el => {
+  el.addEventListener('click', showModal);
+});
+
+function showModal() {
+  modal.style.display = 'block';
+  modalImg.src = 'assets/fox.jpg';
+  captionText.innerHTML = 'fox';
+}
+
+modalClose.onclick = function () {
+  modal.style.display = 'none';
 }
