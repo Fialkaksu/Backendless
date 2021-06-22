@@ -101,7 +101,6 @@ function getTimeOfDay() {
 
 function getImage() {
   const index = Math.floor(Math.random() * 18 + 1);
-  console.log(index)
   const imageSrc = base + getTimeOfDay() + '/' + images[index];
   return imageSrc;
 }
