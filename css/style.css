@@ -84,6 +84,7 @@ header {
   color: var(--content-text-color);
   position: fixed;
   top: 0;
+  z-index: 1;
 }
 
 .theme-tab,
@@ -115,12 +116,12 @@ main {
   font-size: 40px;
   text-align: center;
   padding: 25px 0;
-  animation-name: zoom;
+  animation-name: zoomTitle;
   animation-duration: 3s;
   animation-iteration-count:infinite;
 }
 
-@keyframes zoom {
+@keyframes zoomTitle {
   0% {
     opacity: 0;
   }
